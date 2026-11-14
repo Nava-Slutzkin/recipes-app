@@ -1,8 +1,10 @@
-import { useRef, useState } from "react";
+import { useId, useRef, useState } from "react";
 import { Link } from "react-router";
 import { login } from "../services/auth";
 
 export default function LoginUncontrolled() {
+  const emailId = useId();
+  const passwordId = useId();
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const [message, setMessage] = useState("");
@@ -29,13 +31,13 @@ export default function LoginUncontrolled() {
 
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="email">אימייל:</label><br />
-          <input id="email" type="email" ref={emailRef} defaultValue="" />
+          <label htmlFor={emailId}>אימייל:</label><br />
+          <input id={emailId} type="email" ref={emailRef} defaultValue="" />
         </div>
 
         <div>
-          <label htmlFor="password">סיסמה:</label><br />
-          <input id="password" type="password" ref={passwordRef} defaultValue="" />
+          <label htmlFor={passwordId}>סיסמה:</label><br />
+          <input id={passwordId} type="password" ref={passwordRef} defaultValue="" />
         </div>
 
         <button type="submit">התחבר</button>

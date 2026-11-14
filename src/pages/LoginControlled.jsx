@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 import { Link } from "react-router";
 import { login } from "../services/auth";
 
 export default function LoginControlled() {
+  const emailId = useId();
+  const passwordId = useId();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -26,9 +28,9 @@ export default function LoginControlled() {
 
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="email">אימייל:</label><br />
+          <label htmlFor={emailId}>אימייל:</label><br />
           <input
-            id="email"
+            id={emailId}
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -36,9 +38,9 @@ export default function LoginControlled() {
         </div>
 
         <div>
-          <label htmlFor="password">סיסמה:</label><br />
+          <label htmlFor={passwordId}>סיסמה:</label><br />
           <input
-            id="password"
+            id={passwordId}
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

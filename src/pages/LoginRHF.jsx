@@ -1,9 +1,11 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router";
-import { useState } from "react";
+import { useId, useState } from "react";
 import { login } from "../services/auth";
 
 export default function LoginRHF() {
+  const emailId = useId();
+  const passwordId = useId();
   const [message, setMessage] = useState("");
 
   const {
@@ -31,9 +33,9 @@ export default function LoginRHF() {
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <label htmlFor="email">אימייל:</label><br />
+          <label htmlFor={emailId}>אימייל:</label><br />
           <input
-            id="email"
+            id={emailId}
             type="email"
             {...register("email", {
               required: "שדה אימייל חובה",
@@ -47,9 +49,9 @@ export default function LoginRHF() {
         </div>
 
         <div>
-          <label htmlFor="password">סיסמה:</label><br />
+          <label htmlFor={passwordId}>סיסמה:</label><br />
           <input
-            id="password"
+            id={passwordId}
             type="password"
             {...register("password", {
               required: "שדה סיסמה חובה",
