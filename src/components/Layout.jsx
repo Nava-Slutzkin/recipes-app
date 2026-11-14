@@ -11,6 +11,9 @@ export default function Layout() {
       <nav style={{ padding: 12, borderBottom: "1px solid #ccc" }}>
         <NavLink to="/" end style={linkStyle}>בית</NavLink>
         <NavLink to="/recipes" style={linkStyle}>מתכונים</NavLink>
+        <NavLink to="/login/controlled" style={linkStyle}>כניסה מבוקרת</NavLink>
+        <NavLink to="/login/uncontrolled" style={linkStyle}>כניסה לא מבוקרת</NavLink>
+        <NavLink to="/login/rhf" style={linkStyle}>React Hook Form</NavLink>
       </nav>
       <main style={{ padding: 16 }}>
         <Outlet />
